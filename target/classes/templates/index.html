@@ -1,0 +1,50 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Springboot Example</title>
+	<link rel="stylesheets/css" href="./static/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<style>
+		i{
+			font-size: 24px;
+	    	margin-right: 5px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1 class="mx-auto">User Form</h1>
+	
+	<form action="#" th:action="@{/saveUser}" th:object="${user}" method="POST">
+		<label for="name" class="m-2">Enter Id</label>
+		<input type="text" th:field="*{id}" id="id" placeholder="Enter Id" class="form-control col-sm-6 p-2 m-2"/>
+		<label th:if="${#fields.hasErrors('id')}" th:errors="*{id}">id Error</label>
+		
+		<label for="name" class="m-2">Name</label>
+		<input type="text" th:field="*{name}" id="name" placeholder="Enter Name" class="form-control col-sm-6 p-2 m-2"/>
+		<p th:if="${#fields.hasErrors('name')}" class="text-danger m-2" th:errors="*{name}">Name Error</p>
+		
+		<label for="name" class="m-2">Phone Number</label>
+		<input type="text" id="phno" th:field="*{phno}" placeholder="Phone Number" class="form-control col-sm-6 p-2 m-2"/>
+		<p th:if="${#fields.hasErrors('phno')}" class="text-danger m-2" th:errors="*{phno}">Phone Number Error</p>
+		
+		<label for="email" class="m-2">Email</label>
+		<input type="text" id="email" th:field="*{email}" placeholder="Email" class="form-control col-sm-6 p-2 m-2"/>
+		<p th:if="${#fields.hasErrors('email')}" class="text-danger m-2" th:errors="*{email}">Email Error</p>
+		
+		<label for="password" class="m-2">Password</label>
+		<input type="password" id="password" th:field="*{password}" placeholder="Password" class="form-control col-sm-6 p-2 m-2"/>
+		<p th:if="${#fields.hasErrors('password')}" class="text-danger m-2" th:errors="*{password}">Password Error</p>
+		
+		<button type="submit" class="btn btn-outline-warning col-sm-12 m-2"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+		<a class="btn btn-outline-info col-sm-12 m-2" href="/view/user"><i class="fa fa-eye" aria-hidden="true"></i>View</a>
+	</form>
+</div>
+</body>
+<script type="text/javascript" src="../src/main/resources/js/validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+</html>
